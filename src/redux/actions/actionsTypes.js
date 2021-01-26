@@ -1,0 +1,4 @@
+// preloader actions
+export const ACTIVE_PRELOADER = 'ACTIVE_PRELOADER';
+export const DEACTIVATE_PRELOADER = 'DEACTIVATE_PRELOADER';
+export const DONE_PRELOADER = 'DONE_PRELOADER';

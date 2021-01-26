@@ -1,24 +1,48 @@
-import logo from './logo.svg';
+import React from 'react'
+import Home from './comp/home'
+import Welcome from "./comp/welcome";
+import { useSelector } from "react-redux";
+
+
+
+
 import './App.css';
+import {
+    BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
 
 function App() {
+    const load = useSelector(state => state.loader)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className={
+          load.loader ?
+          'preloader' :
+          ( load.done ? 'preloader active done' : 'preloader active')
+      }>
+        <div className="loading-mask"></div>
+        <div className="loading-mask"></div>
+        <div className="loading-mask"></div>
+        <div className="loading-mask"></div>
+        <div className="loading-mask"></div>
+      </div>
+
+      <Switch>
+          <Route path="/welcome">
+              <Welcome />
+          </Route>
+
+          <Route path="/">
+              <Home />
+          </Route>
+      </Switch>
+
+
+    </Router>
   );
 }
 
