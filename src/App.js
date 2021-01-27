@@ -12,6 +12,10 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import About from "./comp/about";
+import Service from "./comp/service";
+import Resume from "./comp/resume";
+import Work from "./comp/work";
 
 
 function App() {
@@ -34,6 +38,20 @@ function App() {
       <Switch>
           <Route path="/welcome">
               <Welcome />
+          </Route>
+          <Route path="/about">
+              <About />
+          </Route>
+
+          <Route path="/service">
+              <Service />
+          </Route>
+          <Route path="/resume">
+              <Resume />
+          </Route>
+
+          <Route path="/works">
+              <Work />
           </Route>
 
           <Route path="/">
