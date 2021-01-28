@@ -2,8 +2,13 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import {activeLoader, deactivateLoader, donePreloader} from "../redux/actions/preloader";
 import {connect} from "react-redux";
+import {loadAllWorks} from "../redux/actions/works";
 
 class Work extends Component {
+
+    componentWillMount() {
+        loadAllWorks();
+    }
 
     componentDidMount() {
         setTimeout(() => {
@@ -51,32 +56,22 @@ class Work extends Component {
 
 
                                         <div className="row">
-                                            <div className="col-xs-12 col-sm-12 col-md-12">
-                                                <figure className="works-item">
-                                                        <figcaption className="works-inner">
-                                                            <h4>Project Name</h4>
-                                                            <p>Illustration, Digital Art</p>
-                                                        </figcaption>
-                                                </figure>
-                                            </div>
+                                            {
+                                                this.props.works.map(work => {
+                                                    return (
+                                                        <div className="col-xs-12 col-sm-12 col-md-12" key={work.row_id}>
+                                                            <figure className="works-item">
+                                                                <figcaption className="works-inner">
+                                                                    <h4><a href={work.link} target={'_blank'}>{work.name}</a></h4>
+                                                                    <p>{work.details}</p>
+                                                                </figcaption>
+                                                            </figure>
+                                                        </div>
+                                                    )
+                                                })
+                                            }
 
-                                            <div className="col-xs-12 col-sm-12 col-md-12">
-                                                <figure className="works-item">
-                                                    <figcaption className="works-inner">
-                                                        <h4>Project Name</h4>
-                                                        <p>Illustration, Digital Art</p>
-                                                    </figcaption>
-                                                </figure>
-                                            </div>
 
-                                            <div className="col-xs-12 col-sm-12 col-md-12">
-                                                <figure className="works-item">
-                                                    <figcaption className="works-inner">
-                                                        <h4>Project Name</h4>
-                                                        <p>Illustration, Digital Art</p>
-                                                    </figcaption>
-                                                </figure>
-                                            </div>
 
                                         </div>
                                     </div>
@@ -87,7 +82,7 @@ class Work extends Component {
                                                 <span className="prev-page"><Link to="/resume"
                                                                                className="link">&larr; Prev Page</Link></span>
                                                 <span className="copyright hidden-xs">Copyright &copy; 2021 Imran Hossain, All Rights Reserved.</span>
-                                                <span className="next-page"><Link to="/testimonials"
+                                                <span className="next-page"><Link to="/contact"
                                                                                className="link">Next Page &rarr;</Link></span>
                                             </div>
                                         </div>
@@ -105,7 +100,8 @@ class Work extends Component {
 
 const stateToProps = state => {
     return {
-        loader: state.loader
+        loader: state.loader,
+        works: state.works
     }
 }
 

@@ -2,9 +2,14 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import imranImage from '../assets/img/133631843_1307631789615026_939976124895431361_o (1).jpg'
 import {activeLoader, deactivateLoader, donePreloader} from "../redux/actions/preloader";
+import { loadAllSkills } from '../redux/actions/skills'
 import {connect} from "react-redux";
 
 class About extends Component {
+    componentWillMount() {
+
+        loadAllSkills();
+    }
 
     componentDidMount() {
         setTimeout(() => {
@@ -22,70 +27,9 @@ class About extends Component {
     }
 
 
-    render() {
-        const skills = [
-            {
-                name: 'Python',
-                detail: 'Programming Language'
-            },
-            {
-                name: 'JavaScript',
-                detail: 'Programming Language'
-            },
-            {
-                name: 'TypeScript',
-                detail: 'Superset of JS'
-            },
-            {
-                name: 'PHP',
-                detail: 'Programming Language'
-            },
-            {
-                name: 'Django',
-                detail: 'Backend framework of PYTHON'
-            },
-            {
-                name: 'Flask',
-                detail: 'Micro Web Framework of PYTHON'
-            },
-            {
-                name: 'Laravel',
-                detail: 'PHP web framework'
-            },
-            {
-                name: 'Lumen',
-                detail: 'Micro Web Framework of PHP'
-            },
-            {
-                name: 'React',
-                detail: 'JavaScript library'
-            },
-            {
-                name: 'Redux',
-                detail: 'State Manager of JS Big Scale Apps'
-            },
-            {
-                name: 'Angular',
-                detail: 'Front-end Framework of TypeScript'
-            },
-            {
-                name: 'Vue Js',
-                detail: 'Progressive JavaScript Framework'
-            },
-            {
-                name: 'Node Js',
-                detail: 'JavaScript Runtime'
-            },
-            {
-                name: "Mongo DB",
-                detail: 'Database system of No-SQL'
-            },
-            {
-                name: 'MY-SQL',
-                detail: 'Database system of SQL'
-            }
 
-        ]
+
+    render() {
 
         return (
             <>
@@ -136,9 +80,9 @@ class About extends Component {
                                                 </div>
                                                 <div className="skill-wrapper">
                                                     {
-                                                        skills.map(skill => {
+                                                        this.props.skills.map(skill => {
                                                             return (
-                                                                <div className="progress clear">
+                                                                <div className="progress clear" key={skill.row_id}>
                                                                     <div className="skill-name">{skill.name}</div>
                                                                     <div className={'ml-2'}>{skill.detail}</div>
 
@@ -175,7 +119,8 @@ class About extends Component {
 
 const stateToProps = state => {
     return {
-        loader: state.loader
+        loader: state.loader,
+        skills: state.skills
     }
 }
 

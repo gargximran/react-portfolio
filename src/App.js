@@ -16,6 +16,7 @@ import About from "./comp/about";
 import Service from "./comp/service";
 import Resume from "./comp/resume";
 import Work from "./comp/work";
+import Contact from "./comp/contact";
 
 
 function App() {
@@ -41,6 +42,10 @@ function App() {
           </Route>
           <Route path="/about">
               <About />
+          </Route>
+
+          <Route path="/contact">
+              <Contact />
           </Route>
 
           <Route path="/service">
