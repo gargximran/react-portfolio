@@ -98,7 +98,7 @@ class About extends Component {
                                     </div>
 
                                     <nav className="clear">
-                                        <div className="container mb-3">
+                                        <div className="container mb-3 mt-3">
                                             <div className="flex flex-middle space-between">
                                                 <span className="prev-page"><Link to="/welcome" className="link">&larr; Prev Page</Link></span>
                                                 <span className="copyright hidden-xs">Copyright &copy; 2021 Imran Hossain, All Rights Reserved.</span>

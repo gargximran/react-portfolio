@@ -69,7 +69,7 @@ class Service extends Component {
                                                     {
                                                         services.map(service => {
                                                             return (
-                                                                <div className="service-hex">
+                                                                <div className="service-hex" key={service.name}>
                                                                     <svg viewBox="0 0 173.20508075688772 200" height="200" width="174"
                                                                          version="1.1" xmlns="http://www.w3.org/2000/svg">
                                                                         <path
@@ -100,8 +100,8 @@ class Service extends Component {
                                     </div>
 
 
-                                    <nav className="page-nav clear">
-                                        <div className="container">
+                                    <nav className="clear">
+                                        <div className="container mt-3 mb-3">
                                             <div className="flex flex-middle space-between">
                                                 <span className="prev-page"><Link to="/about"
                                                                                className="link">&larr; Prev Page</Link></span>

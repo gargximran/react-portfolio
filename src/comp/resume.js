@@ -199,7 +199,7 @@ class Resume extends Component {
 
 
                                     <nav className="clear">
-                                        <div className="container mb-3">
+                                        <div className="container mb-3 mt-3">
                                             <div className="flex flex-middle space-between">
                                                 <span className="prev-page"><Link to="/service"
                                                                                className="link">&larr; Prev Page</Link></span>

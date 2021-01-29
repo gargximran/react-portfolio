@@ -63,7 +63,7 @@ class Work extends Component {
                                                             <figure className="works-item">
                                                                 <figcaption className="works-inner">
                                                                     <h4><a href={work.link} target={'_blank'}>{work.name}</a></h4>
-                                                                    <p>{work.details}</p>
+                                                                    <p style={{whiteSpace: "pre-wrap", lineHeight: '17px'}}>{work.details}</p>
                                                                 </figcaption>
                                                             </figure>
                                                         </div>
@@ -77,7 +77,7 @@ class Work extends Component {
                                     </div>
 
                                     <nav className="clear">
-                                        <div className="container mb-3">
+                                        <div className="container mb-3 mt-3">
                                             <div className="flex flex-middle space-between">
                                                 <span className="prev-page"><Link to="/resume"
                                                                                className="link">&larr; Prev Page</Link></span>
